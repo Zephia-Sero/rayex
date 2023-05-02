@@ -5,10 +5,13 @@
 extern "C" {
 #endif
 
+#include "button.h"
+#include "common.h"
 #include "rotation.h"
-#include "tilemap.h"
 #include "spritesheet.h"
 #include "texmode.h"
+#include "texoff.h"
+#include "tilemap.h"
 
 
 inline void RayexCleanup(void)
