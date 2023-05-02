@@ -29,7 +29,7 @@ Spritesheet LoadSpritesheetTex(Texture2D const tex,
 			       unsigned int const entryHeight);
 
 // Load a uniform (constant dimensions for each entry) spritesheet from file.
-static inline Spritesheet LoadSpritesheet(char const *const fileName,
+inline Spritesheet LoadSpritesheet(char const *const fileName,
 				     unsigned int const entryWidth,
 				     unsigned int const entryHeight)
 {
@@ -43,7 +43,7 @@ int SpritesheetSet(Spritesheet *const sheet, int const id, Rectangle newSrc);
 
 // Unload spritesheet entries list from RAM, and unload texture from VRAM
 // if `unloadTex` is true.
-static inline void UnloadSpritesheet(Spritesheet sheet, bool unloadTex)
+inline void UnloadSpritesheet(Spritesheet sheet, bool unloadTex)
 {
 	free(sheet.entries);
 	if (unloadTex)
@@ -57,7 +57,7 @@ int DrawSpritesheetPro(Spritesheet const sheet, int const id,
 
 // Draw an entry of a spritesheet with extended parameters.
 // Returns 0 on success, 1 on failure.
-static inline int DrawSpritesheetEx(Spritesheet const sheet, int const id,
+inline int DrawSpritesheetEx(Spritesheet const sheet, int const id,
 			     Vector2 const position, Rotation const rot,
 			     Color const tint)
 {
@@ -68,7 +68,7 @@ static inline int DrawSpritesheetEx(Spritesheet const sheet, int const id,
 }
 // Draw an entry of a spritesheet with position defined as Vector2.
 // Returns 0 on success, 1 on failure.
-static inline int DrawSpritesheetV(Spritesheet const sheet, int const id,
+inline int DrawSpritesheetV(Spritesheet const sheet, int const id,
 			   Vector2 const position,
 			   Color const tint)
 {
@@ -83,7 +83,7 @@ static inline int DrawSpritesheetV(Spritesheet const sheet, int const id,
 
 // Draw an entry of a spritesheet.
 // Returns 0 on success, 1 on failure.
-static inline int DrawSpritesheet(Spritesheet const sheet, int const id,
+inline int DrawSpritesheet(Spritesheet const sheet, int const id,
 			   float const x, float const y,
 			   Color const tint)
 {

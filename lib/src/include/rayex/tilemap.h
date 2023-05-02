@@ -1,6 +1,7 @@
 // tilemap.h
 #ifndef TILEMAP_H
 #define TILEMAP_H
+#include <stdbool.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -43,6 +44,14 @@ Tilemap LoadTilemap(Spritesheet const sheet,
 		    unsigned int const mapWidth, unsigned int const mapHeight,
 		    unsigned int const tileWidth, unsigned int const tileHeight,
 		    int const initialId);
+
+inline void UnloadTilemap(Tilemap map, bool freeSheet, bool freeTex)
+{
+	UnloadRenderTexture(map._rtex);
+	free(map.tiles);
+	if (freeSheet)
+		UnloadSpritesheet(map._sheet, freeTex);
+}
 
 int _UpdateTilemap(Tilemap *const map);
 
