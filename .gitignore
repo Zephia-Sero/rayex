@@ -1,6 +1,8 @@
 # Compiled
 */bin/
 */obj/
+bin/
+obj/
 
 
 # Valgrind dumps
