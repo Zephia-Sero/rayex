@@ -1,52 +1,14 @@
-# Prerequisites
-*.d
+# Compiled
+*/bin/
+*/obj/
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Valgrind dumps
+vgcore*
 
-# Precompiled Headers
-*.gch
-*.pch
+# Clang stuff
+compile-commands.json
+.cache/*
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Things that shouldn't be uploaded or risk some kind of legal action! :D
+_*/

@@ -1,0 +1,21 @@
+[
+  {
+    "arguments": [
+      "/sbin/clang",
+      "-c",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Isrc//include/",
+      "-Ilib/src//include/",
+      "-o",
+      "obj//rayextest.c.o",
+      "src//rayextest.c"
+    ],
+    "directory": "/home/zephia/repos/rayex",
+    "file": "/home/zephia/repos/rayex/src/rayextest.c",
+    "output": "/home/zephia/repos/rayex/obj/rayextest.c.o"
+  }
+]
