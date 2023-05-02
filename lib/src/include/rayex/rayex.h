@@ -6,6 +6,7 @@ extern "C" {
 #endif
 
 #include "rotation.h"
+#include "tilemap.h"
 #include "spritesheet.h"
 
 #ifdef __cplusplus

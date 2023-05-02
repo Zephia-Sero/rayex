@@ -7,4 +7,4 @@ Raylib, but with extra abstractions.
 | Feature       | Completion |
 |---------------|------------|
 | Sprite Sheets | Partial?   |
-| Tilemaps      | Soon       |
+| Tilemaps      | Partial?   |

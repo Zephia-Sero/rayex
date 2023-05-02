@@ -10,6 +10,8 @@ Spritesheet LoadSpritesheetTex(Texture2D const tex,
 	ret.numEntries = sswidth * ssheight;
 	ret._alloced = ret.numEntries;
 	ret.entries = (SpritesheetEntry *) malloc(sizeof(SpritesheetEntry) * ret._alloced);
+	if (ret.entries == NULL)
+		return ret;
 
 	for (int y = 0; y < ssheight; ++y) {
 		for (int x = 0; x < sswidth; ++x) {
@@ -61,6 +63,8 @@ int DrawSpritesheetPro(Spritesheet const sheet, int const id,
 				dest.width = entry.src.width;
 			if (dest.height == -1)
 				dest.height = entry.src.height;
+			dest.x += rot.origin.x;
+			dest.y += rot.origin.y;
 			DrawTexturePro(sheet._tex, entry.src, dest, rot.origin, rot.angle, tint);
 			return 0;
 		}
