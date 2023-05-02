@@ -2,6 +2,7 @@
 #include "rayex/rotation.h"
 #include "rayex/spritesheet.h"
 #include "rayex/tilemap.h"
+#include "rayex/texmode.h"
 #include <stdio.h>
 
 Tilemap LoadTilemap(Spritesheet const sheet,
@@ -44,7 +45,7 @@ int _UpdateTilemap(Tilemap *const map)
 {
 	int failure = 0;
 	if (map->_dirty) {
-		BeginTextureMode(map->_rtex);
+		PushTextureMode(map->_rtex);
 		ClearBackground((Color) { 0 });
 		for (unsigned int x = 0; x < map->mapWidth; ++x) {
 			for (unsigned int y = 0; y < map->mapHeight; ++y) {
@@ -53,7 +54,7 @@ int _UpdateTilemap(Tilemap *const map)
 							     tile.id,
 							     (Vector2) {
 								.x = x * map->tileWidth,
-								.y = (map->mapHeight - y - 1) * map->tileHeight
+								.y = y * map->tileHeight
 							     },
 							     tile.rot,
 							     tile.tint);
@@ -63,7 +64,7 @@ int _UpdateTilemap(Tilemap *const map)
 						tile.id, x, y);
 			}
 		}
-		EndTextureMode();
+		PopTextureMode();
 		map->_dirty = false;
 	}
 
@@ -75,10 +76,12 @@ int _UpdateTilemap(Tilemap *const map)
 }
 
 int DrawTilemapPro(Tilemap *const map,
-		   Rectangle const src, Rectangle dest,
+		   Rectangle src, Rectangle dest,
 		   Rotation const rot, Color const tint)
 {
 	int failure = _UpdateTilemap(map);
+	// account for OpenGL stuff
+	src.height = -src.height;
 	dest.x += rot.origin.x;
 	dest.y += rot.origin.y;
 	DrawTexturePro(map->_rtex.texture, src, dest, rot.origin, rot.angle, tint);

@@ -8,6 +8,13 @@ extern "C" {
 #include "rotation.h"
 #include "tilemap.h"
 #include "spritesheet.h"
+#include "texmode.h"
+
+
+inline void RayexCleanup(void)
+{
+	RayexCleanupTextureMode();
+}
 
 #ifdef __cplusplus
 } /* extern "C" */

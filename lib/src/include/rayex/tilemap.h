@@ -45,7 +45,7 @@ Tilemap LoadTilemap(Spritesheet const sheet,
 		    unsigned int const tileWidth, unsigned int const tileHeight,
 		    int const initialId);
 
-inline void UnloadTilemap(Tilemap map, bool freeSheet, bool freeTex)
+static inline void UnloadTilemap(Tilemap map, bool freeSheet, bool freeTex)
 {
 	UnloadRenderTexture(map._rtex);
 	free(map.tiles);
@@ -60,7 +60,7 @@ int DrawTilemapPro(Tilemap *const map,
 		   Rectangle const src, Rectangle const dest,
 		   Rotation const rot, Color const tint);
 
-inline int DrawTilemapEx(Tilemap *const map,
+static inline int DrawTilemapEx(Tilemap *const map,
 			 Vector2 position, Rotation const rot,
 			 Color const tint)
 {
@@ -84,7 +84,7 @@ inline int DrawTilemapEx(Tilemap *const map,
 			      tint);
 }
 
-inline int DrawTilemap(Tilemap *const map, int const posX, int const posY,
+static inline int DrawTilemap(Tilemap *const map, int const posX, int const posY,
 		       Color const tint)
 {
 	return DrawTilemapPro(map,
@@ -107,7 +107,7 @@ inline int DrawTilemap(Tilemap *const map, int const posX, int const posY,
 			      tint);
 }
 
-inline int DrawTilemapV(Tilemap *const map, Vector2 const position,
+static inline int DrawTilemapV(Tilemap *const map, Vector2 const position,
 			Color const tint)
 {
 	return DrawTilemapPro(map,
@@ -130,7 +130,7 @@ inline int DrawTilemapV(Tilemap *const map, Vector2 const position,
 			      tint);
 }
 
-inline Tile *TilemapGet(Tilemap map,
+static inline Tile *TilemapGet(Tilemap map,
 			unsigned int const x, unsigned int const y)
 {
 	if (x >= map.mapWidth || y >= map.mapHeight)
