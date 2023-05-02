@@ -6,5 +6,5 @@ Raylib, but with extra abstractions.
 
 | Feature       | Completion |
 |---------------|------------|
-| Sprite Sheets | Soon       |
-| Tilemaps      | Later      |
+| Sprite Sheets | Partial?   |
+| Tilemaps      | Soon       |
